@@ -1,0 +1,5 @@
+cc  mol1
+ccc    mol2
+cccc   mol3
+cccccc mol4
+c mol5

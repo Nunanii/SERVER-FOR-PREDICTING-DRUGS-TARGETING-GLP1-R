@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>GLP1 RECEPTOR AGONIST PREDICTION </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static',filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static',filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static',filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename= 'assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File <link href="assets/css/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/style.css') }}">
+
+
+  <!-- =======================================================
+  * Template Name: OnePage - v4.7.0
+  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- <h1 class="logo"><a href="#">GLP1R</a></h1>-->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="#" class="logo"><img src="{{ url_for('static',filename='assets/img/logo.jpeg') }}" alt=""
+          class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto o" href="#portfolio">Result</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+          <li><a href="/tutorial">Tutorial</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+      <div class="row gx-10" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-sm px-md-5">
+          <div class="container-sm description-box">
+
+            <div class="row">
+              <h2>Glucagon Like Peptide Receptor</h2>
+              <h2>Predicting Agonists</h2>
+              <div class="container-sm s-box">
+                <form method='POST' enctype='multipart/form-data' action="#portfolio">
+                  <div class="row row-cols-3 s-box-item">
+                    <div class="d-inline p-2 col-auto">
+                      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Input Type:</label>
+                    </div>
+                    <div class="d-inline p-2 col-auto">
+                      <select class="select" data-mdb-filter="true" name="selectinput">
+                        <option value="cid">PUBCHEM CID</option>
+                        <option value="name">NAME</option>
+                        <option value="smiles">SMILES</option>
+                      </select>
+                    </div>
+                    <div class="d-inline p-2 col-auto">
+                      <input type="search" name="value" class="form-control" id="form1" placeholder="value"
+                        aria-label="Search">
+                    </div>
+                  </div>
+                  <div class="row row-cols-3 s-box-item">
+                    <div class="d-inline p-2 col-auto">
+                      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Select Algorithm:</label>
+                    </div>
+                    <div class=" d-inline p-2 col-auto">
+                      <select class="select" data-mdb-filter="true" name="selectalgorithm">
+                        <option value="ANN">ANN</option>
+                        <option value="XGB">XGB</option>
+                        <option value="Logistic Regression">LR</option>
+                        <option value="Random Forest">RF</option>
+                      </select>
+                    </div>
+                    <div class="d-inline p-2 col-auto">
+                      <input type="submit" id="form1-submit" name="form1-submit" value="Submit"
+                        class="btn btn-outline-primary">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm px-md-5">
+          <div class="container-sm search-box">
+            <div class="row ">
+              <div class="col-auto">
+                <h4 class="title"><a>Upload files (.txt or .csv)</a></h4>
+              </div>
+            </div>
+            <div class="col-auto">
+              <form method='POST' enctype='multipart/form-data' action="#portfolio">
+                <div class="custome-file">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <p><input class="form-control" type="file" id="file" name="file"></p>
+                    </div>
+                    <div class="col-auto">
+                      <p><input type="submit" id="form2-submit" name="form2-submit" value="Submit"></p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <a download="Example_file.txt" id="example_file" name="example_file">Download example file</a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+ 
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Prediction results</h2>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter=".filter-description" class="filter-active">Single</li>
+              <li data-filter=".filter-details">File Search</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="portfolio-item filter-description">
+            <div class="container">
+              <h4>IUPAC: {{mol_name}} </h4>
+              <h4>Smile: {{smile}} </h4>
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="table">
+                  <tr>
+                    <th>Model</th>
+                    <th>Potency</th>
+                    <th>Molecular weight</th>
+                    <th>Applicability Domain</th>
+                  </tr>
+                  <tr>
+                    <td>{{ML_model}}</td>
+                    <td>{{pred}}</td>
+                    <td>{{mw}}</td>
+                    <td>N/A</td>
+                  </tr>
+                </table>
+              </div>
+
+              <img src="data:image/jpeg;base64,{{ structure }}" alt="User Image" class="rounded float-left "
+                alt="Responsive image" width="450" height="220" style="border:1px solid #cecece;">
+              <img src="data:image/jpeg;base64,{{ structure_prop }}" alt="User Image" class="rounded float-right"
+                alt="Responsive image" width="450" height="220" style="border:1px solid #cecece;">
+
+            </div>
+          </div>
+          <div class="portfolio-item filter-details">
+            <div class="container">
+              <div class="table table-responsive">
+                <table id="table2">
+                  <tr>
+                    <th>No</th>
+                    <th>Smiles</th>
+                    <th>Potency</th>
+                    <th>IUPAC</th>
+                    <th>Molecular weight</th>
+                  </tr>
+                  {% for row in csv %}
+                  <tr>
+                    {% for col in row.split(";") %}
+                    <td>{{ col }}</td>
+                    {% endfor %}
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-primary">Save result .csv</button>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About The Project</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              Type 2 diabetes is a chronic disorder that results from either the body's failure to produce enough
+              insulin, the body developing a resistance to the effects of this insulin, or both. In 2015, 415 million
+              persons aged 20 to 79 had diabetes mellitus, according to the International Diabetes Federation (IDF).
+              The fact that this number is anticipated to increase by another 200 million by 2040 indicates that DM is
+              posing a burden on public health globally.
+            </p>
+            <ul>
+              <p>
+                There are several drugs (GLP-1R agonists) available in the treatment of these diseases, some of which
+                cause severe side effects and others gradually losing their efficacy the longer a patient uses them.
+              </p>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>Most of these drugs are administered subcutaneously meaning they are injected into a fatty tissue just
+              below the skin. This project seeks to computationally predict active orally susceptible GLP-1R agonists by
+              using supervised learning model, category of machine learning for this process. Dataset was acquired from
+              an online archive of chemical molecules and their activities against biological assays (PubChem). </p>
+            <p>
+              Dataset is then cleaned and preprocessed for training using python and models such as Random Forest (RF),
+              XG boost, Linear regression, Artificial Neural Network and others were trained. Compounds that
+              successfully go through end up as drugs (preferably oral) against type 2 diabetes after clinical trials
+              and aid in the reduction of the disease.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+        <div class="text-center">
+          <h3>Models</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
+        </div>
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <h4>Dr Samuel Kojo Kwofie</h4>
+          <p>skkwofie@ug.edu.gh</p>
+          <p>Project Supervisor</p>
+        </div>
+
+        <div class="row justify-content-center">
+
+          <div class="col-auto" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="member-info">
+                <h4>Ignatus Nunana</h4>
+                <span>Principal developer</span>
+                <span>indorvi@st.ug.edu.gh</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-auto" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="member-info">
+                <h4> Rafiatu Sadu </h4>
+                <span>UX developer</span>
+                <span>content writer</span>
+                <span>snrmeek10@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-auto" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="member-info">
+                <h4>Christabel Biney</h4>
+                <span>content writer</span>
+                <span>cbiney003@st.ug.edu.gh</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-auto" data-aos="fade-up" data-aos-delay="400">
+            <div class="member">
+              <div class="member-info">
+                <h4> Vivian Gyan </h4>
+                <span>content writer</span>
+                <span> gyanvivian6@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                data-bs-target="#faq-list-1">1.What is a GLP-1R agonist?<i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  Glucagon-like peptide-1 receptor agonists (GLP-1R) are a class of medications used to treat type 2
+                  diabetes. GLP-1 is an incretin hormone that helps the pancreas release insulin. Persons with type 2
+                  diabetes have lower levels of incretin hormones, which lead to high blood sugar.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
+                class="collapsed">What are some examples of GLP-1R agonist?<i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  There are several GLP-1R agonists, some of which include: Adlyxin (lixisenatide), Bydureon
+                  (exanatide), Byetta (exanatide), Ozempic (semaglutide), Rybelsus (semaglutide), Saxenda (liraglutide),
+                  Trulicity (dulaglitide), Victoza (liraglutide), Wegovy (semaglutide).
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3"
+                class="collapsed">Do GLP-1R agonists help to lower A1c levels?<i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Research shows that GLP-1R agonists help reduce A1c levels to about 1% in people with type 2 diabetes.
+                  These medications lower fasting blood sugar levels and reduce post-meal blood sugar spikes without
+                  increasing the risk of hypoglycemia.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+                class="collapsed">Are there any oral GLP-1 agonists for people with type 2 diabetes? <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Yes, one example of an oral GLP-1 agonist is Rybelsus (semaglutide) that is FDA approved for the
+                  treatment of type 2 diabetes. Rybelsus may have some side effects on the patient some of which include
+                  abdominal pain, diarrhea, nausea, constipation, loss of appetite and vomiting.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5"
+                class="collapsed">Are there different types of GLP-1R agonists? <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Yes, two types of GLP-1R agonists exist, which are the short-acting formulas that are taken once or
+                  twice daily, and the long-acting formulas, which are taken once in a week. The type of GLP-1R agonist
+                  prescribed to the patient depends on certain factors like medical history, blood sugar control, cost
+                  (GLP-1R agonists can be expensive), and the patients preference.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="500">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-6"
+                class="collapsed">What is the mod of administration of GLP-1R agonists?<i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-6" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Most GLP-1R agonists are administered subcutaneously (injected). This means the agonists are given
+                  with a syringe and needle or with a pre-filled dosing pen, depending on the drug. These medications
+                  are injected into fatty tissue (either your abdomen or upper thigh) just below the surface of the
+                  skin.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="600">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-7"
+                class="collapsed">Does the intake of GLP-1R agonists cause side effects?<i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-7" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Generally, GLP-1R agonists are safe and may cause little to no side effects. Side effects like nausea,
+                  vomiting and diarrhea affect 10 to 40 percent of patients who take GLP-1R agonists. These side effects
+                  tend to be less severe the longer the patient takes the medications. In some rare cases some patients
+                  tend to have severe side effects such as ongoing abdominal or back pain, dizziness or fainting,
+                  extreme thirst, decreased urination, itching, pounding heart etc. such cases should be treated as an
+                  emergency if a patient starts to have them.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>GLP1-R</h4>
+            <p>
+              University of Ghana <br>
+              Accra<br>
+              Ghana <br><br>
+              <strong>Phone:</strong> +233 209509829<br>
+              <strong>Email:</strong> indorvi@st.ug.edu.gh<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">results</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#faq">FAQ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Research Paper</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Link to Dataset, codes and research Paper</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a
+                  href="https://drive.google.com/file/d/1-0tS8Eec5TBlvhkU4JbFmECqpaASAlUS/view?usp=sharing">Dataset</a>
+              </li>
+              <li><i class="bx bx-chevron-right"></i> <a
+                  href="https://colab.research.google.com/drive/13DLPZqk196WJMwv8S3Hyt5K1ewcDBfk8?usp=sharing">Smiles
+                  calculation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a
+                  href="https://colab.research.google.com/drive/1tRODqE95piGydnBOEXBpISrfyxcKNuSQ?usp=sharing">Descriptors
+                  calculation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a
+                  href="https://colab.research.google.com/drive/14i7zuyZX1XSYRtNjnZzMmGFyne0Gsqtx?usp=sharing">Preprocessing</a>
+              </li>
+              <li><i class="bx bx-chevron-right"></i> <a
+                  href="https://colab.research.google.com/drive/1KcXowrJ1z5Zar90f9oEH5tKmlIn0aDYk?usp=sharing">Model
+                  Training</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>GROUP 6</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
+          Designed by <a href="https://www.nunana.tech/">Nunana</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/i.am.nunana/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="https://www.linkedin.com/in/dorvi-ignatus-nunana-2a944120b/" class="linkedin"><i
+            class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static',filename='assets/vendor/purecounter/purecounter.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/table.js') }}"></script>
+
+  <script src="{{ url_for('static',filename='assets/js/example.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/structure_default.js') }}"></script>
+
+</body>
+
+</html>
